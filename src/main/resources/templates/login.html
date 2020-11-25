@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="EN" xmlns:th="http://www.thymeleaf.org">
+    <head></head>
+    <body>
+
+        <div th:if="${errorMessage=='OK'}"></div>
+        <div th:unless="${errorMessage=='OK'}"><span>password is incorect</span></div>
+
+        <form name="f" th:action="@{/login}" method="post">
+        <P>User name</P>
+        <input type="text" id="username" name="username">
+        <P>Password</P>
+        <input type="password" id="password" name="password">
+        <button type="submit" class="btn btn-primary">submit</button>
+    </form>
+    </body>
+</html>
