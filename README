@@ -1,0 +1,6 @@
+- Real time news console
+- using spring webSocket
+- the view created by thymeleaf
+- there are 2 type of users : admin, reader
+- only admin can put news on console
+- readers only fetch the news
