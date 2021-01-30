@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 	<head>
-	    <title>Chat WebSocket</title>
+	    <title>news WebSocket</title>
 	    
 	    
-		
+		<script th:src="@{'/webjars/jquery/3.3.1/jquery.min.js'}" ></script>
 		<script th:src="@{'/js/sockjs-0.3.4.js'}" ></script>
 		<script th:src="@{'/js/stomp.js'}" ></script>
 	    
 	    <script type="text/javascript">
 
+			$(document).ready(function(){
+				$('#status').text("Connecting..");
+				connect();	
+				
+			});
 	        var stompClient = null;
 
 	        function setConnected(connected) {
@@ -17,11 +22,18 @@
 	            document.getElementById('connect').disabled = connected;
 	            document.getElementById('disconnect').disabled = !connected;
 	            document.getElementById('conversationDiv').style.visibility = connected ? 'visible' : 'hidden';
-	            document.getElementById('response').innerHTML = '';
+				document.getElementById('response').innerHTML = '';
+				if(connected==true)
+				{
+					$('#status').text("Connected to the server");
+				}
+				else{
+					$('#status').text("Disconnected");
+				}
 	        }
 
 	        function connect() {
-
+				
 	            var socket = new SockJS('/chat');
 	            stompClient = Stomp.over(socket);
 
@@ -48,7 +60,8 @@
 
 	        function sendMessage() {
 
-	        	var from = document.getElementById('from').value;
+				//var from = document.getElementById('currentUser').text;
+				var from=$('#currentUser').text();
 	            var text = document.getElementById('text').value;
 	            stompClient.send("/app/chat", {}, JSON.stringify({'from':from, 'text':text}));
 	        }
@@ -67,7 +80,10 @@
 	</head>
 	
 	<body onload="disconnect()">
-<p> this template is designed by thymeleaf</p>
+		<span>Current user : 
+			<span id="currentUser" th:text="${currentUser}">undefiend</span>
+		</span>
+		<p id="status"> this template is designed by thymeleaf</p>
 		<div>
 		
 		

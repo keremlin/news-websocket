@@ -34,8 +34,6 @@ public class security extends WebSecurityConfigurerAdapter {
           .and()
           .formLogin().loginPage("/login").failureUrl("/login?fail=true")
           .permitAll();
-          
-          
     }
     
 }

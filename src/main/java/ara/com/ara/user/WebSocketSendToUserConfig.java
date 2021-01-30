@@ -28,6 +28,7 @@ public class WebSocketSendToUserConfig implements WebSocketMessageBrokerConfigur
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         registry
         .addEndpoint("/greeting")
+        
         .setHandshakeHandler(new DefaultHandshakeHandler() {
 
             //Get sessionId from request and set it in Map attributes
@@ -39,6 +40,6 @@ public class WebSocketSendToUserConfig implements WebSocketMessageBrokerConfigur
                     attributes.put("sessionId", session.getId());
                 }
                 return true;
-            }}).withSockJS();
+            }}).setAllowedOrigins("*").withSockJS();
     }
 }
