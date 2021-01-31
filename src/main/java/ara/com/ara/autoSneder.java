@@ -1,5 +1,7 @@
 package ara.com.ara;
 
+import java.time.Instant;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -13,10 +15,10 @@ import ara.com.ara.webSocket.OutputMessage;
 public class autoSneder {
         @Autowired
         private SimpMessagingTemplate template;
-    
-        @Scheduled(fixedRate = 60000)
+
+        @Scheduled(fixedRate = 5000)
         public void fireGreeting() {
-            this.template.convertAndSend("/topic/messages", new OutputMessage("Server","Heartbeat","now"));
+            this.template.convertAndSend("/queue/now", Instant.now());
+            
         }
-      
 }

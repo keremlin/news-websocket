@@ -34,7 +34,7 @@
 
 	        function connect() {
 				
-	            var socket = new SockJS('/chat');
+	            var socket = new SockJS('/stomp');
 	            stompClient = Stomp.over(socket);
 
 	            stompClient.connect({}, function(frame) {
@@ -63,7 +63,7 @@
 				//var from = document.getElementById('currentUser').text;
 				var from=$('#currentUser').text();
 	            var text = document.getElementById('text').value;
-	            stompClient.send("/app/chat", {}, JSON.stringify({'from':from, 'text':text}));
+	            stompClient.send("/app/stomp", {}, JSON.stringify({'from':from, 'text':text}));
 	        }
 
 	        function showMessageOutput(messageOutput) {
