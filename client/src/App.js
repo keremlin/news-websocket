@@ -9,7 +9,7 @@ class App extends React.Component {
   state = {
     serverTime: null,
     message:'no Messages'
-    ,news:['Begin']
+    ,news:['ِYou join the News at :'+(new Date()).getHours()+':'+(new Date()).getMinutes()]
     ,newsMessage:''
   }
  

@@ -13,12 +13,12 @@ public class eventListener implements ApplicationListener<SessionConnectEvent> {
 
     public void onApplicationEvent(SessionConnectEvent event) {
         
-        this.messagingTemplate.convertAndSend("/topic/messages",
+        this.messagingTemplate.convertAndSend("/topic/news",
           new OutputMessage("User is now online : ",event.getUser().getName(),"now"));
         //this.messagingTemplate.convertAndSendToUser(event.getUser().getName(), "/queue/reply", "I just connected");
         System.out.println("event just handled --> "+event.getUser().getName());
         this.messagingTemplate.convertAndSendToUser("Admin",
-             "/topic/messages", new OutputMessage("Here you are : ",event.getUser().getName()," Wellcome"));
+             "/topic/news", new OutputMessage("Here you are : ",event.getUser().getName()," Wellcome"));
     }
 
 }
