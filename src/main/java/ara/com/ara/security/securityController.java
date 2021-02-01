@@ -1,4 +1,4 @@
-package ara.com.ara;
+package ara.com.ara.security;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

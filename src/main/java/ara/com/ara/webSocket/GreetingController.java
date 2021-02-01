@@ -1,26 +1,20 @@
-package ara.com.ara;
+package ara.com.ara.webSocket;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 
-import ara.com.ara.beans.IAuthenticationFacade;
-
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-
 import java.security.Principal;
+import java.text.SimpleDateFormat;
 import java.time.Instant;
+import java.util.Date;
 
 @Controller
 public class GreetingController {
     @Autowired
-    private IAuthenticationFacade auth;
 
     private static final Logger logger = LoggerFactory.getLogger(GreetingController.class);
 
@@ -34,14 +28,18 @@ public class GreetingController {
     public void greet(String greeting) {
         logger.info("Greeting for {}", greeting);
 
-        String text = "[" + Instant.now() + "]: " + greeting;
+        String text = "[" + getTime() + "]: " + greeting;
         this.simpMessagingTemplate.convertAndSend("/topic/greetings", text);
     }
     @MessageMapping("/news")
     public void news(String news,Principal principal) { 
-        String text = "["+principal.getName() +"--" + Instant.now() + "]: " + news;
+        String text = "["+principal.getName() +"--" + getTime()+ "]: " + news;
         logger.info("News for {}", text);
         this.simpMessagingTemplate.convertAndSend("/topic/news", text);
+    }
+    // return the time format
+    private String getTime(){
+        return new SimpleDateFormat("HH:mm:ss").format(new Date());
     }
 
 }

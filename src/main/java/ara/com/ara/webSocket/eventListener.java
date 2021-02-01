@@ -5,6 +5,7 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.messaging.SessionConnectEvent;
+import ara.com.ara.beans.*;
 
 @Component
 public class eventListener implements ApplicationListener<SessionConnectEvent> {

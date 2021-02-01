@@ -1,4 +1,4 @@
-package ara.com.ara;
+package ara.com.ara.security;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;

@@ -1,4 +1,4 @@
-package ara.com.ara.webSocket;
+package ara.com.ara.beans;
 
 public class Message {
 

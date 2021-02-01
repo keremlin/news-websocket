@@ -1,5 +1,7 @@
 package ara.com.ara.webSocket;
 
+import ara.com.ara.beans.*;
+
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;

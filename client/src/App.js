@@ -1,8 +1,7 @@
 import './App.css';
 import React from 'react';
 import { Client } from '@stomp/stompjs';
-import ReactDom from 'react-dom';
-
+import NewsBoard from './newsBoard/newsBoard'
 
 class App extends React.Component {
 
@@ -36,10 +35,10 @@ class App extends React.Component {
           this.setState({news:arrayTemp});
         });
       },
-      // Helps during debugging, remove in production
+      /*Helps during debugging, remove in production
       debug: (str) => {
         console.log(new Date(), str);
-      }
+      }*/ 
     });
     this.client.activate();
     
@@ -64,11 +63,8 @@ class App extends React.Component {
             Server time: {this.state.serverTime ? this.state.serverTime : 'no data'}
         </p>
         
-        <div className="newsBoard">
-         {this.state.news.map((value)=>
-         <p>{value}</p>
-         )}
-        </div>
+        <NewsBoard news={this.state.news}></NewsBoard>
+
         <p>
           <input type="text" id="newsMessage" onChange={this.handleInput}></input>
           <button onClick={this.clickHandlerNews}>news</button>
