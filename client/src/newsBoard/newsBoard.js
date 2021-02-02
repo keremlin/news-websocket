@@ -9,7 +9,7 @@ import  './newsBoard.css'
         <div className="newsBoard">
             
             {this.props.news.map((value) =>
-                <div key={i++}>{value}</div>
+                <div className="test" key={i++}>{value}</div>
             )}
         </div>)
       }
