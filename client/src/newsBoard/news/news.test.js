@@ -1,5 +1,5 @@
 import { act,  screen  } from '@testing-library/react';
-import NewsBoard from './newsBoard';
+import NewsBoard from './news';
 import { render, unmountComponentAtNode } from "react-dom";
 let container = null;
 beforeEach(() => {
@@ -15,12 +15,13 @@ afterEach(() => {
   container = null;
 });
 describe('newsBoard :', () => {
-  describe('render',()=>{
-    test('render properly',()=>{
-      act(()=>{
-        render(<NewsBoard></NewsBoard>,container);
-      });
-      const element=screen.getByText('/News Board/i');
+  
+  describe('render the component :', () => {
+    test('render newsBoard', () => {
+      act(() => {
+        render(<NewsBoard news={['you join', 'you doin', '39']}></NewsBoard>, container);
+      })
+      const element=screen.getByText(/you join/i);
       expect(element).toBeInTheDocument();
     });
   });
