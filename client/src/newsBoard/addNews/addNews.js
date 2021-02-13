@@ -1,7 +1,7 @@
 import React from 'react'
-import  './news.css'
+import  './addNews.css'
 
- export default class news extends React.Component{
+ export default class AddNews extends React.Component{
     render(){
         return(null);
     }

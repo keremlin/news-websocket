@@ -1,7 +1,7 @@
 import React from 'react'
-import  './news.css'
+import  './statusBar.css'
 
- export default class news extends React.Component{
+ export default class StatusBar extends React.Component{
     render(){
         return(null);
     }
