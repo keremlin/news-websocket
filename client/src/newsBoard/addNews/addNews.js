@@ -3,7 +3,9 @@ import  './addNews.css'
 
  export default class AddNews extends React.Component{
     render(){
-        return(null);
+        return(
+            <span>Add person</span>
+        );
     }
 
  }

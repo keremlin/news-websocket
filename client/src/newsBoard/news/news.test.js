@@ -1,5 +1,5 @@
 import { act,  screen  } from '@testing-library/react';
-import NewsBoard from './news';
+import News from './news';
 import { render, unmountComponentAtNode } from "react-dom";
 let container = null;
 beforeEach(() => {
@@ -14,14 +14,19 @@ afterEach(() => {
   container.remove();
   container = null;
 });
-describe('newsBoard :', () => {
+describe('news :', () => {
   
   describe('render the component :', () => {
-    test('render newsBoard', () => {
+    
+    test('render news Box', () => {
       act(() => {
-        render(<NewsBoard news={['you join', 'you doin', '39']}></NewsBoard>, container);
+        let data=[
+          {message:'description of news box',user:'title01',date:'1400/12/01'},
+          {message:'description of news box02',user:'title02',date:'1400/02/12'}
+        ];
+        render(<News news={data}></News>, container);
       })
-      const element=screen.getByText(/you join/i);
+      const element=screen.getByText(/title01/i);
       expect(element).toBeInTheDocument();
     });
   });

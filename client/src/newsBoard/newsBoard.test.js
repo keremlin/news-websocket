@@ -18,9 +18,13 @@ describe('newsBoard :', () => {
   describe('render',()=>{
     test('render properly',()=>{
       act(()=>{
-        render(<NewsBoard></NewsBoard>,container);
+        let data=[
+          {message:'description of news box',user:'title01',date:'1400/12/01'},
+          {message:'description of news box02',user:'title02',date:'1400/02/12'}
+        ];
+        render(<NewsBoard news={data}></NewsBoard>,container);
       });
-      const element=screen.getByText('/News Board/i');
+      const element=screen.getByText(/box02/i);
       expect(element).toBeInTheDocument();
     });
   });

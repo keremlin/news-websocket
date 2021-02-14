@@ -8,13 +8,15 @@ class App extends React.Component {
   state = {
     serverTime: null,
     message:'no Messages'
-    ,news:['ِYou join the News at :'+(new Date()).getHours()+':'+(new Date()).getMinutes()]
+    , news: [
+      { message: 'You join the News at :' + (new Date()).getHours() + ':' + (new Date()).getMinutes(), user: 'System', date: '1400/01/21' }
+    ]
     ,newsMessage:''
   }
  
   componentDidMount(){
 
-    console.log('component did mount-------');
+    //console.log('component did mount-------');
     this.client=new Client();
 
    this.client.configure({
@@ -29,9 +31,10 @@ class App extends React.Component {
         this.client.subscribe('/topic/greetings', message => {
           this.setState({messages:message.body});
         });
-        this.client.subscribe('/topic/news',message=>{
+        this.client.subscribe('/topic/news',messages=>{
+          let item={message:messages.body,user:'admin',date:'14001/02/02'};
           let arrayTemp=this.state.news;
-          arrayTemp.push(message.body);
+          arrayTemp.push(item);
           this.setState({news:arrayTemp});
         });
       },

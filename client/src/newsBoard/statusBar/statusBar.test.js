@@ -1,5 +1,5 @@
 import { act,  screen  } from '@testing-library/react';
-import NewsBoard from './statusBar';
+import StatusBar from './statusBar';
 import { render, unmountComponentAtNode } from "react-dom";
 let container = null;
 beforeEach(() => {
@@ -14,16 +14,19 @@ afterEach(() => {
   container.remove();
   container = null;
 });
-describe('newsBoard :', () => {
+describe('StatusBar :', () => {
   
   describe('render the component :', () => {
-    test('render newsBoard', () => {
-      act(() => {
-        render(<NewsBoard news={['you join', 'you doin', '39']}></NewsBoard>, container);
-      })
-      const element=screen.getByText(/you join/i);
-      expect(element).toBeInTheDocument();
+    describe('render the component :', () => {
+      test('render StatusBar', () => {
+        act(() => {
+          render(<StatusBar></StatusBar>, container);
+        })
+        const element=screen.getByText(/State/i);
+        expect(element).toBeInTheDocument();
+      });
     });
+   
   });
 
   describe('behavior',()=>{
