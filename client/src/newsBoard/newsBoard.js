@@ -18,13 +18,9 @@ import AddNews from './addNews/addNews'
                 <News news= {this.props.news}></News>
             </div>
             <div className="col-md-4"></div>
-            
-            <h1>News Board</h1>
-            
-           
             <UserStatus></UserStatus>
             <StatusBar></StatusBar>
-            <AddNews></AddNews>
+            <AddNews onClick={this.props.onClick} onPressEnter={this.props.onPressEnter}></AddNews>
             
         </div>)
       }

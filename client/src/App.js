@@ -73,17 +73,19 @@ class App extends React.Component {
     <div className="App">
       <header className="App-header">
         <h3>Realtime News Pannel</h3>
-      </header>
-        <p>
+         <p>
             Server time: {this.state.serverTime ? this.state.serverTime : 'no data'}
         </p>
+      </header>
+       
         
-        <NewsBoard news={this.state.news}></NewsBoard>
+      <NewsBoard
+        news={this.state.news}
+        onClick={this.clickHandlerNews}
+        onPressEnter={this.onKeyDownNews}>
+      </NewsBoard>
 
-        <p>
-          <input type="text" id="newsMessage" onChange={this.handleInput} value={this.state.newsMessage} onKeyDown={this.onKeyDownNews}></input>
-          <button onClick={this.clickHandlerNews}>news</button>
-        </p>
+        
         <p>
             <button onClick={this.clickHandler}>greeting</button>
         </p>
