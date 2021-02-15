@@ -2,8 +2,8 @@ import './App.css';
 import React from 'react';
 import { Client } from '@stomp/stompjs';
 import NewsBoard from './newsBoard/newsBoard'
-import {ReactComponent as  Logo} from './dc.svg'
-import ico from './dc.svg'
+import Header from './header/header'
+
 
 class App extends React.Component {
 
@@ -60,19 +60,14 @@ class App extends React.Component {
     
   return (
     <>
-      <header className="App-header">
-       <div className="landing-container-logo-wrapper">
-       <img src={ico} width="70" height="70" className="App-logo-spin"></img>
-       </div>
-      </header>
-      <div className="row no-gutters">
- <h3>Realtime News Pannel</h3>
-        <p>
-          Server time: {this.state.serverTime ? this.state.serverTime : 'no data'}
-        </p>
+      <Header></Header>
+      <div className="row no-gutters appjs">
+        <h3>Realtime Events Pannel</h3>
         <NewsBoard
           news={this.state.news}
-          sendNews={this.sendNews}>
+          sendNews={this.sendNews}
+          serverTime={this.state.serverTime ? this.state.serverTime : 'no data'}
+          >
         </NewsBoard>
 
 

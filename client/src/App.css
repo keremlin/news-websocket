@@ -1,0 +1,21 @@
+.App {
+    text-align: left;
+    padding:20px;
+  }
+  .container-fluid{
+    background-image:url("background-right.svg"), url("background-left.svg");
+    height:100vh;
+    background-position: 0 0,100% 100%;
+    background-repeat: no-repeat;
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
+  .appjs h3{
+      text-align: center;
+      width: 100%;
+      color:#006bb4
+  }
+  
+  
