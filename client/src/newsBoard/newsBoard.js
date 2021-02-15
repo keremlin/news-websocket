@@ -20,7 +20,7 @@ import AddNews from './addNews/addNews'
             <div className="col-md-4"></div>
             <UserStatus></UserStatus>
             <StatusBar></StatusBar>
-            <AddNews onClick={this.props.onClick} onPressEnter={this.props.onPressEnter}></AddNews>
+            <AddNews sendNews={this.props.sendNews}></AddNews>
             
         </div>)
       }

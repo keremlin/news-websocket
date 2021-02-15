@@ -4,7 +4,7 @@ import  './userStatus.css'
  export default class UserStatus extends React.Component{
     render(){
         return(
-            <span>User Name:</span>
+            <div>User Name:</div>
         );
     }
 

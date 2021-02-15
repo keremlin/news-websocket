@@ -15,8 +15,8 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 10vh;
+  background-color: #1ba9f5;
+  height: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,7 +24,28 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
+.App-header .landing-container-logo-wrapper {
+  
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  top: 2rem;
+  padding: 0.3rem;
+  margin: 0 auto 10px;
+  height: 70px;
+  width: 70px;
+  border-radius: 46px;
+  -webkit-box-shadow: 0 4px 8px rgb(0 0 0 / 20%);
+  box-shadow: 0 4px 8px rgb(0 0 0 / 20%);
+  background: #fff;
+}
+.rotate {
+  animation: rotation 2s infinite linear;
+}
 .App-link {
   color: #61dafb;
 }

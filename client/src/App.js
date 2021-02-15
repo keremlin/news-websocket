@@ -2,6 +2,8 @@ import './App.css';
 import React from 'react';
 import { Client } from '@stomp/stompjs';
 import NewsBoard from './newsBoard/newsBoard'
+import {ReactComponent as  Logo} from './dc.svg'
+import ico from './dc.svg'
 
 class App extends React.Component {
 
@@ -49,50 +51,39 @@ class App extends React.Component {
   clickHandler = () => {
     this.client.publish({destination: '/app/greetings', body: 'Hello world'});
   }
-  clickHandlerNews=()=>{
-   this.sendNews();
-  }
-  handleInput=(event)=>{
-    this.setState({newsMessage: event.target.value});
-  }
-  onKeyDownNews=(event)=>{
-    if (event.key === 'Enter') {
-      this.sendNews(event.target.value);
-      console.log('Hit Enter : '+event.target.value);
-    }
-  }
   sendNews=(value)=>{
-    this.setState({newsMessage: value});
-    this.client.publish({destination:'/app/news',body:this.state.newsMessage});
-    this.setState({newsMessage:''});
+    console.log('send data is fired : '+value);
+    this.client.publish({destination:'/app/news',body:value});
   }
   
   render(){
     
   return (
-    <div className="App">
+    <>
       <header className="App-header">
-        <h3>Realtime News Pannel</h3>
-         <p>
-            Server time: {this.state.serverTime ? this.state.serverTime : 'no data'}
-        </p>
+       <div className="landing-container-logo-wrapper">
+       <img src={ico} width="70" height="70" className="App-logo-spin"></img>
+       </div>
       </header>
-       
-        
-      <NewsBoard
-        news={this.state.news}
-        onClick={this.clickHandlerNews}
-        onPressEnter={this.onKeyDownNews}>
-      </NewsBoard>
-
-        
+      <div className="row no-gutters">
+ <h3>Realtime News Pannel</h3>
         <p>
-            <button onClick={this.clickHandler}>greeting</button>
+          Server time: {this.state.serverTime ? this.state.serverTime : 'no data'}
+        </p>
+        <NewsBoard
+          news={this.state.news}
+          sendNews={this.sendNews}>
+        </NewsBoard>
+
+
+        <p>
+          <button onClick={this.clickHandler}>greeting</button>
         </p>
         <p>{this.state.messages}</p>
-        
-      
-    </div>
+
+
+      </div>
+    </>
   );
   }
 }
