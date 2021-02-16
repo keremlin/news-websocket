@@ -1,6 +1,5 @@
 import React from  'react'
 import './header.css'
-import {ReactComponent as  Logo} from './dc.svg'
 import ico from './dc.svg'
 export default function Header(){
     return(

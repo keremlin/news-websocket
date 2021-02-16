@@ -62,19 +62,22 @@ class App extends React.Component {
     <>
       <Header></Header>
       <div className="row no-gutters appjs">
-        <h3>Realtime Events Pannel</h3>
-        <NewsBoard
-          news={this.state.news}
-          sendNews={this.sendNews}
-          serverTime={this.state.serverTime ? this.state.serverTime : 'no data'}
+        <div className="col-md-12">
+          <h3>Realtime Events Pannel</h3>
+          <NewsBoard
+            news={this.state.news}
+            sendNews={this.sendNews}
+            serverTime={this.state.serverTime ? this.state.serverTime : 'no data'}
           >
-        </NewsBoard>
+          </NewsBoard>
 
 
-        <p>
-          <button onClick={this.clickHandler}>greeting</button>
-        </p>
-        <p>{this.state.messages}</p>
+          <p>
+            <button onClick={this.clickHandler}>greeting</button>
+          </p>
+          <p>{this.state.messages}</p>
+        </div>
+
 
 
       </div>

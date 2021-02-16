@@ -1,6 +1,7 @@
 .App {
     text-align: left;
     padding:20px;
+   
   }
   .container-fluid{
     background-image:url("background-right.svg"), url("background-left.svg");

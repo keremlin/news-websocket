@@ -18,11 +18,18 @@ describe('StatusBar :', () => {
   
   describe('render the component :', () => {
     describe('render the component :', () => {
-      test('render StatusBar', () => {
+      test('render StatusBar for server time', () => {
         act(() => {
-          render(<StatusBar></StatusBar>, container);
+          render(<StatusBar serverTime="10:10:10"></StatusBar>, container);
         })
-        const element=screen.getByText(/State/i);
+        const element=screen.getByText(/10:10:10/i);
+        expect(element).toBeInTheDocument();
+      });
+      test('render StatusBar for connection test', () => {
+        act(() => {
+          render(<StatusBar serverTime="10:10:10"></StatusBar>, container);
+        })
+        const element=screen.getByText(/Connected/i);
         expect(element).toBeInTheDocument();
       });
     });

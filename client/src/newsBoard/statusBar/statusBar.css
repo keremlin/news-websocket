@@ -1,0 +1,15 @@
+.statusBar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #006bb4;
+    text-align: center;
+    padding:3px 0 3px 0;
+}
+.colorRed{
+    color:red;
+}
+.colorGreen{
+    color:rgb(84, 226, 28);
+}
+span{margin:5px;}
