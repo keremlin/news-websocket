@@ -28,10 +28,13 @@ public class security extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-          .authorizeRequests()
+        //.cors()
+        //.and()
+          .authorizeRequests().antMatchers("/getCurrentUserName").permitAll()
           .anyRequest()
           .authenticated()
           .and()
+          .csrf().disable()
           .formLogin().loginPage("/login").failureUrl("/login?fail=true")
           .permitAll();
     }

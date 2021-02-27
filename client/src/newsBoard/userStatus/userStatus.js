@@ -5,7 +5,9 @@ export default function UserStatus() {
     const [userName,setUserName]=useState('0');
     useEffect(() => {
         fetch("http://localhost:8080/getCurrentUserName")
-        .then(res=>res.text)
+        .then((body)=>{
+            return body.text(); // <--- THIS PART WAS MISSING
+          })
         .then(
             (result)=>{
                 setUserName(result);
