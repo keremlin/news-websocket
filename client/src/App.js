@@ -26,12 +26,16 @@ class App extends React.Component {
       onConnect: () => {
         console.log('onConnect');
 
-        this.client.subscribe('/queue/now', message => {
+        this.client.subscribe('/topic/now', message => {
           this.setState({serverTime: /\d{2}:\d{2}:\d{2}/.exec(message.body)[0]});
         });
 
         this.client.subscribe('/topic/greetings', message => {
           this.setState({messages:message.body});
+        });
+        this.client.subscribe('secured/user/queue/specific-user', message => {
+          //this.setState({messages:message.body});
+          console.log(message);
         });
         this.client.subscribe('/topic/news',messages=>{
           let item={message:messages.body,user:'admin',date:'14001/02/02'};
@@ -49,7 +53,9 @@ class App extends React.Component {
     
   }
   clickHandler = () => {
+    console.log("clicked to users.............");
     this.client.publish({destination: '/app/greetings', body: 'Hello world'});
+    this.client.publish({destination: '/secured/room', body: 'Hi world'});
   }
   sendNews=(value)=>{
     console.log('send data is fired : '+value);

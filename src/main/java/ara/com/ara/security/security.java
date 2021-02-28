@@ -28,9 +28,9 @@ public class security extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-        //.cors()
-        //.and()
-          .authorizeRequests().antMatchers("/getCurrentUserName").permitAll()
+        .cors()
+        .and()
+          .authorizeRequests().antMatchers("/getCurrentUserName").authenticated()
           .anyRequest()
           .authenticated()
           .and()
