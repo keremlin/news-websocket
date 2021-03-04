@@ -22,7 +22,4 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
         registry.addEndpoint("/stomp").setAllowedOrigins("*");
         registry.addEndpoint("/secured/room").setAllowedOrigins("*").withSockJS();
     }
-//https://github.com/simvetanylen/test-spring-websocket
-//https://www.baeldung.com/spring-websockets-send-message-to-user
-//https://www.baeldung.com/spring-websockets-sendtouser
 }
