@@ -76,16 +76,7 @@ class App extends React.Component {
             serverTime={this.state.serverTime ? this.state.serverTime : 'no data'}
           >
           </NewsBoard>
-
-
-          <p>
-            <button onClick={this.clickHandler}>greeting</button>
-          </p>
-          <p>{this.state.messages}</p>
         </div>
-
-
-
       </div>
     </>
   );

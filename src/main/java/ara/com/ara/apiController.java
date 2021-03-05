@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ara.com.ara.beans.userManagement;
 
+import java.lang.reflect.Array;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -36,8 +37,14 @@ public class apiController {
     }
     @CrossOrigin
     @RequestMapping("/api/getAllUsers")
-    public List<String> getAllUsers(){
-        
+    public String[] getAllUsers(){
+       String[] temp={"Admin","keremlin","Arash","Hadi","Samad"};
+        return(temp);
+    }
+    @CrossOrigin
+    @RequestMapping("/api/getOnlineUsers")
+    public List<String> getOnlineUsers(){
+        log.info("AllUser is fetch");
         return usermanagement.getOnlineUsers();
     }
 }

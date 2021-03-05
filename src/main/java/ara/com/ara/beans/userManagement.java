@@ -17,7 +17,7 @@ public class userManagement {
 
     public List<Object> getUsersFromSessionRegistry() {
         return sessionRegistry.getAllPrincipals().stream()
-                .filter(u -> !sessionRegistry.getAllSessions(u, false).isEmpty())
+                .filter(u -> !sessionRegistry.getAllSessions(u, true).isEmpty())
                 .collect(Collectors.toList());
     }
 

@@ -15,19 +15,16 @@ import AddNews from './addNews/addNews'
              <>
                  <div className="newsBoard row">
                      <div className="col-md-2">
-
                      </div>
                      <div className="col-md-8">
                          <News news={this.props.news}></News>
                      </div>
                      <div className="col-md-2">
-                        
+                         <UserStatus></UserStatus>
                      </div>
-
-
                  </div>
                  <div className="row">
-                     <div className="col-md-4"><UserStatus></UserStatus></div>
+                     <div className="col-md-4"></div>
                      <div className="col-md-4"> <AddNews sendNews={this.props.sendNews}></AddNews></div>
                      <div className="col-md-4"></div>
                  </div>

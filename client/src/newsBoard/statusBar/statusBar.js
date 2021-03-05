@@ -24,8 +24,8 @@ export default class StatusBar extends React.Component {
 
     render() {
         return (
-            <div className="statusBar">
-                <div className="row">
+            
+                <div className="row statusBar">
                     <div className="col-md-2"></div>
                     <div className="col-md-2"></div>
                     <div className="col-md-2 colorGreen"><Clock width="20" height="20"></Clock> {this.props.serverTime}</div>
@@ -41,7 +41,7 @@ export default class StatusBar extends React.Component {
                     <div className="col-md-2"></div>
                     <div className="col-md-2"></div>
                 </div>
-            </div>
+            
         );
     }
 }

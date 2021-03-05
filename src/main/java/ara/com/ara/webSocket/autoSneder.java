@@ -20,8 +20,8 @@ public class autoSneder {
         @Scheduled(fixedRate = 5000)
         public void fireGreeting() {
            
-            String temp= Instant.now().toString()+"--";
+            String temp= Instant.now().toString();
             this.template.convertAndSend("/topic/now",temp);
-            System.out.println(temp); 
+            //System.out.println(temp); 
         }
 }
