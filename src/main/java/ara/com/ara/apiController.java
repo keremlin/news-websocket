@@ -1,15 +1,11 @@
 package ara.com.ara;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import ara.com.ara.beans.userManagement;
-
-import java.lang.reflect.Array;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -25,26 +21,19 @@ public class apiController {
     @CrossOrigin
     @RequestMapping("/api/getCurrentUserName")
     public String getCurrentUserName() {
-        log.info("api is fetch");
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        String username="";
-        if (principal instanceof UserDetails) {
-            username = ((UserDetails) principal).getUsername();
-        } else {
-             username = principal.toString();
-        }
-        return username;
+        return usermanagement.getCurrentUser();
     }
+
     @CrossOrigin
     @RequestMapping("/api/getAllUsers")
     public String[] getAllUsers(){
-       String[] temp={"Admin","keremlin","Arash","Hadi","Samad"};
-        return(temp);
+      
+        return(usermanagement.getAllUsers());
     }
+
     @CrossOrigin
     @RequestMapping("/api/getOnlineUsers")
     public List<String> getOnlineUsers(){
-        log.info("AllUser is fetch");
         return usermanagement.getOnlineUsers();
     }
 }

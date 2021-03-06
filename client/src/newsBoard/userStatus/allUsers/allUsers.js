@@ -31,9 +31,9 @@ export default function Allusers() {
     console.log(onlinelist);
     const listItems= list.map((item) =>
         <div>
-            {onlinelist.indexOf(item) ?
-                <NotAvailable className={styles.offline} width="20" height="20"></NotAvailable> :
-                <SmileBeam className={styles.emoji} width="20" height="20"></SmileBeam>
+            {onlinelist.indexOf(item)>=0 ?
+                <SmileBeam className={styles.emoji} width="20" height="20"></SmileBeam> :
+                <NotAvailable className={styles.offline} width="20" height="20"></NotAvailable>
             }
             {item}
         </div>

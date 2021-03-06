@@ -5,15 +5,28 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.session.SessionRegistry;
 import org.springframework.stereotype.Service;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 
 @Service
 public class userManagement {
 
     @Autowired
     private SessionRegistry sessionRegistry;
+
+    public String getCurrentUser(){
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String username="";
+        if (principal instanceof UserDetails) {
+            username = ((UserDetails) principal).getUsername();
+        } else {
+             username = principal.toString();
+        }
+        return username;
+    }
 
     public List<Object> getUsersFromSessionRegistry() {
         return sessionRegistry.getAllPrincipals().stream()
@@ -30,6 +43,10 @@ public class userManagement {
         }
         return retValue;
 
+    }
+    public String[] getAllUsers(){
+        String[] temp={"Admin","keremlin","Arash","Hadi","Samad"};
+        return (temp);
     }
 
 

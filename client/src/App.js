@@ -33,12 +33,9 @@ class App extends React.Component {
         this.client.subscribe('/topic/greetings', message => {
           this.setState({messages:message.body});
         });
-        this.client.subscribe('secured/user/queue/specific-user', message => {
-          //this.setState({messages:message.body});
-          console.log(message);
-        });
         this.client.subscribe('/topic/news',messages=>{
-          let item={message:messages.body,user:'admin',date:'14001/02/02'};
+          let convertedMessage=JSON.parse(String(messages.body));
+          let item={message:convertedMessage.text,user:convertedMessage.from,date:convertedMessage.time,type:convertedMessage.type};
           let arrayTemp=this.state.news;
           arrayTemp.push(item);
           this.setState({news:arrayTemp});

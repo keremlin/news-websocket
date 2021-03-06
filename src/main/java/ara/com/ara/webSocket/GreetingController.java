@@ -38,22 +38,13 @@ public class GreetingController {
     }
     @MessageMapping("/news")
     public void news(String news,Principal principal) { 
-        String text = "["+principal.getName() +"--" + getTime()+ "]: " + news;
-        logger.info("News for {}", text);
-        this.simpMessagingTemplate.convertAndSend("/topic/news", text);
+        OutputMessage message= new OutputMessage(principal.getName(),news,getTime(),2);
+        
+        logger.info("News for {}", message);
+        this.simpMessagingTemplate.convertAndSend("/topic/news", message);
     }
     // return the time format
     private String getTime(){
         return new SimpleDateFormat("HH:mm:ss").format(new Date());
     }
-
-    @MessageMapping("/secured/room")
-    public void sendSpecific(@Payload Message msg, Principal user, @Header("simpSessionId") String sessionId)
-            {
-                System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx subscribe to private chat");
-        OutputMessage out = new OutputMessage(msg.getFrom(), msg.getText(),
-                new SimpleDateFormat("HH:mm").format(new Date()));
-        simpMessagingTemplate.convertAndSendToUser(msg.getTo(), "/secured/user/queue/specific-user", out);
-    }
-
 }
