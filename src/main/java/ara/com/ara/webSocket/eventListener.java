@@ -17,8 +17,9 @@ public class eventListener implements ApplicationListener<SessionConnectEvent> {
 
   public void onApplicationEvent(SessionConnectEvent event) {
     this.messagingTemplate.convertAndSend("/topic/news", new OutputMessage(
-        "User is now online : ",
-         event.getUser().getName(),
+      "System",
+      event.getUser().getName()+" is online!",
+         
          new SimpleDateFormat("HH.mm.ss").format(new Date()),
          1
          ));
