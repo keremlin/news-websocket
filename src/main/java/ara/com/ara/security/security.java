@@ -44,7 +44,8 @@ public class security extends WebSecurityConfigurerAdapter {
           .authenticated()
           .and()
           .csrf().disable()
-          .formLogin().loginPage("/login").failureUrl("/login?fail=true")
+          .formLogin().loginPage("/login").failureUrl("/login?fail=true").defaultSuccessUrl("http://localhost:3000")
+          
           .permitAll()
           .and()
           .sessionManagement()

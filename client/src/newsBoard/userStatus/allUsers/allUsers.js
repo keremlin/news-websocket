@@ -5,7 +5,7 @@ import { ReactComponent as SmileBeam } from './smile-beam.svg'
 
 
 export default function Allusers() {
-    console.log('Alluser was refresh');
+  
     const [listOfUsers, setListOfusers] = useState('["0"]');
     const [listOfOnlineUsers, setListOfOnlineusers] = useState('["0"]');
     var list=['Anonymouse'];
@@ -28,9 +28,9 @@ export default function Allusers() {
     });
     list=JSON.parse(listOfUsers);
     onlinelist=JSON.parse(listOfOnlineUsers);    
-    console.log(onlinelist);
-    const listItems= list.map((item) =>
-        <div>
+    
+    const listItems= list.map((item,index) =>
+        <div key={index}>
             {onlinelist.indexOf(item)>=0 ?
                 <SmileBeam className={styles.emoji} width="20" height="20"></SmileBeam> :
                 <NotAvailable className={styles.offline} width="20" height="20"></NotAvailable>

@@ -6,7 +6,7 @@ export default function Header(){
         <>
             <header className="App-header">
                 <div className="landing-container-logo-wrapper">
-                    <img src={ico} width="70" height="70" className="App-logo"></img>
+                    <img src={ico} width="70" height="70" className="App-logo" alt="Events Panel"></img>
                 </div>
             </header>
         </>

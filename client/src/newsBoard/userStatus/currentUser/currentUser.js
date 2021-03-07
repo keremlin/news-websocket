@@ -3,7 +3,7 @@ import styles from './currentUser.module.css'
 import { ReactComponent as SmileBeam } from './smile-beam.svg'
 
 export default function CurrentUser() {
-    console.log('current was refresh');
+    
     const [userName, setUserName] = useState('0');
 
     useEffect(() => {

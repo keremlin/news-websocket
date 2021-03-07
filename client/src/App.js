@@ -8,6 +8,7 @@ import Header from './header/header'
 class App extends React.Component {
 
   state = {
+    connection:false,
     serverTime: null,
     message:'no Messages'
     , news: [
@@ -25,6 +26,8 @@ class App extends React.Component {
       brokerURL: 'ws://localhost:8080/stomp',
       onConnect: () => {
         console.log('onConnect');
+        if(this.state.connection!=true)
+          this.setState({connection:true});
 
         this.client.subscribe('/topic/now', message => {
           this.setState({serverTime: /\d{2}:\d{2}:\d{2}/.exec(message.body)[0]});
@@ -40,7 +43,13 @@ class App extends React.Component {
           arrayTemp.push(item);
           this.setState({news:arrayTemp});
         });
-      },
+      },onStompError:()=>{
+        console.log("On stomp err!");
+      },onWebSocketError:()=>{
+        console.log("On websocket err!");
+        if(this.state.connection!=false)
+          this.setState({connection:false});
+      }
       /*Helps during debugging, remove in production
       debug: (str) => {
         console.log(new Date(), str);

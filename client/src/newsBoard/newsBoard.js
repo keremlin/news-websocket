@@ -7,9 +7,7 @@ import AddNews from './addNews/addNews'
 
  export default class NewsBoard extends React.Component{
 
-    constructor(props) {
-        super(props);
-    }
+    
      render() {
          return (
              <>
