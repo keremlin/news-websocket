@@ -26,7 +26,7 @@ class App extends React.Component {
       brokerURL: 'ws://localhost:8080/stomp',
       onConnect: () => {
         console.log('onConnect');
-        if(this.state.connection!=true)
+        if(this.state.connection!==true)
           this.setState({connection:true});
 
         this.client.subscribe('/topic/now', message => {
@@ -47,7 +47,7 @@ class App extends React.Component {
         console.log("On stomp err!");
       },onWebSocketError:()=>{
         console.log("On websocket err!");
-        if(this.state.connection!=false)
+        if(this.state.connection!==false)
           this.setState({connection:false});
       }
       /*Helps during debugging, remove in production
