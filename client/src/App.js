@@ -80,6 +80,7 @@ class App extends React.Component {
             news={this.state.news}
             sendNews={this.sendNews}
             serverTime={this.state.serverTime ? this.state.serverTime : 'no data'}
+            isOnline={this.state.connection}
           >
           </NewsBoard>
         </div>

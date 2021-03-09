@@ -18,7 +18,7 @@ import AddNews from './addNews/addNews'
                          <News news={this.props.news}></News>
                      </div>
                      <div className="col-md-2">
-                         <UserStatus></UserStatus>
+                         <UserStatus isOnline={this.props.isOnline}></UserStatus>
                      </div>
                  </div>
                  <div className="row">
