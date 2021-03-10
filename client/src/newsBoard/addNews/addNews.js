@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import './addNews.css'
+import Modalx from '../../modal/modalx'
+import Button from 'react-bootstrap/Button';
 
 export default function AddNews(props) {
     //using hooks to hold value
@@ -24,17 +26,22 @@ export default function AddNews(props) {
         props.sendNews(value);
         setName("");
     }
-    //render
-    return (
-        <div>
+    const forms= <div>
             <label>Send An Event : </label>
             <input type="text" id="newsMessage"
                 onChange={onChange}
                 value={name}
                 onKeyDown={props.onPressEnter ? props.onPressEnter : onKeyDownNews}
-            >
+            >  
             </input>
-            <button onClick={props.onClick ? props.onClick : clickHandlerNews}>news</button>
+            <Button >news</Button>
         </div>
+    //render
+    return (
+        <>
+       
+        <Modalx onClickSave={clickHandlerNews} 
+        body={forms} title="Send an Event" closeButton="Close" saveButton="Send Event" button="Create event !"></Modalx>
+        </>
     );
 }
