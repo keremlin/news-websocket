@@ -3,26 +3,25 @@ import styles from './userStatus.module.css'
 import Allusers from './allUsers/allUsers'
 import CurrentUser from './currentUser/currentUser'
 import SVG from '../../svg/SVG'
+import Window from './window/window'
+import ToggleSwitch from '../../toggleSwitch/toggleSwitch'
 
 export default function UserStatus(props) {
     return (
         <>
-            <div className={styles.statusHeader}>
-                <span>Current User</span>
-                <span><SVG icon="minimize" height="12" width="12"></SVG></span>
-            </div>
-            <div className={styles.status}>
+
+            <Window title="Current User">
                 <CurrentUser isOnline={props.isOnline}></CurrentUser>
-            </div>
-
-
-            <div className={styles.statusHeader}>
-                <span>Online Users</span> 
-                <span><SVG icon="minimize" height="12" width="12"></SVG></span>
-            </div>
-            <div className={styles.status}>
+            </Window>
+            <Window title="Online Users">
                 <Allusers isOnline={props.isOnline}></Allusers>
-            </div>
+            </Window>
+            <Window title="Switches">
+                <ToggleSwitch label="Engine"></ToggleSwitch>
+                <ToggleSwitch label="Heater"></ToggleSwitch>
+                <ToggleSwitch label="Wires"></ToggleSwitch>
+            </Window>
+
         </>
     );
 
