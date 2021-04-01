@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal'
@@ -9,35 +9,27 @@ const Modalx = (props) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
-  const handleSave=()=>{
-    props.onClickSave();
+  const handleSave = () => {
+    //props.onClickSave();
+    setShow(false);
   }
   const handleShow = () => setShow(true);
 
-//This component created by react-bootstrap 
-//and requier 'npm install react-bootstrap bootstrap'
+  //This component created by react-bootstrap 
+  //and requier 'npm install react-bootstrap bootstrap'
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        {props.button}
-      </Button>
-
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={props.showModalx} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>{props.title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>{props.body}</Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            {props.closeButton}
-          </Button>
-          <Button variant="primary" onClick={handleSave}>
-            {props.saveButton}
-          </Button>
+          {props.footer}
         </Modal.Footer>
       </Modal>
     </>
-);
-  }
+  );
+}
 export default Modalx;

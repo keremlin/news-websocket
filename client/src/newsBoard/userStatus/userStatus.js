@@ -20,6 +20,8 @@ export default function UserStatus(props) {
                 <ToggleSwitch label="Engine"></ToggleSwitch>
                 <ToggleSwitch label="Heater"></ToggleSwitch>
                 <ToggleSwitch label="Wires"></ToggleSwitch>
+                <ToggleSwitch label="Halt"></ToggleSwitch>
+                <ToggleSwitch label="Connect"></ToggleSwitch>
             </Window>
 
         </>
