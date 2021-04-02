@@ -3,6 +3,10 @@ import styles from './addNews.module.css'
 import Modalx from '../../modal/modalx'
 import Button from 'react-bootstrap/Button';
 import SVG from '../../svg/SVG';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 
 export default function AddNews(props) {
     //using hooks to hold value
@@ -58,9 +62,10 @@ export default function AddNews(props) {
     //render
     return (
         <>
-            <Button  variant="primary" onClick={()=>setShowModalx(true)}>
-               <SVG icon="event" height="25" width="25"></SVG> New Event 
-            </Button>
+            <ListItem button onClick={()=>setShowModalx(true)}>
+              <ListItemIcon><AddCircleOutlineIcon></AddCircleOutlineIcon></ListItemIcon>
+              <ListItemText primary="Create Event" />
+            </ListItem>
             <Modalx onClickSave={clickHandlerNews}
                 body={forms} footer={footer} title="Send an Event" closeButton="Close" saveButton="Send event" showModalx={showModalx} button="Create event !">
             </Modalx>

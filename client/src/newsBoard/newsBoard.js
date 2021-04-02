@@ -14,10 +14,7 @@ import Window from './userStatus/window/window'
              <>
                  <div className="newsBoard row">
                      <div className="col-md-2">
-                         <Window title='Actions'>
-                             <div><AddNews sendNews={this.props.sendNews}></AddNews></div>
-                             
-                         </Window>
+                        
                      </div>
                      <div className="col-md-8">
                          <News news={this.props.news}></News>

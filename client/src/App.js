@@ -3,6 +3,7 @@ import React from 'react';
 import { Client } from '@stomp/stompjs';
 import NewsBoard from './newsBoard/newsBoard'
 import Header from './header/header'
+import MiniDrawer from './MiniDrawer'
 
 
 class App extends React.Component {
@@ -82,7 +83,9 @@ class App extends React.Component {
             serverTime={this.state.serverTime ? this.state.serverTime : 'no data'}
             isOnline={this.state.connection}
           >
+
           </NewsBoard>
+          <MiniDrawer sendNews={this.sendNews}></MiniDrawer>
         </div>
       </div>
     </>
